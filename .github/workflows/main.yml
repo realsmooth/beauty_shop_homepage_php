@@ -1,0 +1,52 @@
+name: Branch-specific PHP Deployment
+
+on:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ 레포지토리 코드 체크아웃
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Git 사용자 설정
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+      # 3️⃣ 브랜치별 FTP_PATH 환경변수 설정
+      - name: Set branch-specific FTP path
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+
+          if [ "$BRANCH_NAME" == "dev" ]; then
+            echo "FTP_PATH=/hosting/wideworld/html/beauty_shop_homepage_dev/" >> $GITHUB_ENV
+          elif [ "$BRANCH_NAME" == "main" ]; then
+            echo "FTP_PATH=/hosting/wideworld/html/beauty_shop_homepage_prod/" >> $GITHUB_ENV
+          fi
+
+      # 4️⃣ 브랜치별 FTP_PATH 존재 시에만 배포
+      - name: Deploy via FTP
+        if: env.FTP_PATH != ''
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: wideworld.dothome.co.kr
+          username: wideworld
+          password: clxhtm11!
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.vscode/**
+          dangerous-clean-slate: true
+          local-dir: ./       # 레포 루트 기준
+          server-dir: ${{ env.FTP_PATH }}
+          dry-run: false
