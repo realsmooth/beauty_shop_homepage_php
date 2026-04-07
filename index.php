@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Beauty#</title>
-  <link rel="stylesheet" href="css/sample_common.css">
+  <link href="https://fonts.googleapis.com/css2?family=Economica&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/sample_common.css">  
   <script src="js/sample_common.js" defer></script>
   <style>
     
@@ -34,7 +35,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0,0,0,0.2);
     }
 
     .slide ul li.active {
@@ -42,14 +43,9 @@
         z-index: 1;
     }
 
-    .slide ul li img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 또는 cover */
-        object-position: center 30%;
-    }
-
+   
     .slide ul li a {
+        position: relative;
         display: flex;
         justify-content: center;  /* 가로 중앙 */
         align-items: center;      /* 세로 중앙 */
@@ -57,19 +53,25 @@
     }
     
     .slide ul li h2 {
-        color: #fff;
+        color: #e9e4e4;
         font-size: 25px;
         text-align: center;
-        z-index: 100;
+        opacity: 0;
+        animation: fadeInUp 5s ease forwards;
     }    
+
+    /* keyframes */
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+        }
+    }
     
-    /*
     .slide ul li.s1 {
       background: url('./images/spabielenda-beautician-5529805.jpg') no-repeat;
       background-size: cover;
       background-position: center 30%;
     }
-    */
 
     /*
     .slide ul li.s2 {
@@ -294,12 +296,9 @@
     <section class="slide">
       <ul>
         <li class="s1 active">
-            <!--
           <a href="#">
             <h2>당신의 아름다움을 완성하는 공간</h2>
           </a>
-          -->
-          <img src="./images/spabielenda-beautician-5529805.jpg" alt="">
         </li>
         <!--
         <li class="s2">
