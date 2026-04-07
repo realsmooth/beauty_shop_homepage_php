@@ -44,6 +44,13 @@
       text-align: center;
       transition: color 0.5s ease; /* ⭐ 추가 */
     }
+
+    /* 클릭 혹은 활성 메뉴 */
+    nav ul li a.active {
+        font-weight: 600;  /* 진하게 */
+        color: #d1457b;    /* 조금 더 진한 색 */
+    }
+    
     nav ul li a:hover { color: white; }
 
     .sub-visual {

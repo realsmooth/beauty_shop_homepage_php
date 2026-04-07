@@ -284,7 +284,7 @@
 
         <nav id="navMenu">
           <ul>
-            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php" class="active" >Home</a></li>
             <li><a href="services.php">Services</a></li>
             <li><a href="#">Price</a></li>
             <li><a href="#">Contact</a></li>
