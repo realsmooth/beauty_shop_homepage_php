@@ -68,7 +68,7 @@
     }
     
     .slide ul li.s1 {
-      background: url('./images/spabielenda-beautician-5529805.jpg') no-repeat;
+      background: url('./images/hero.png') no-repeat;
       background-size: cover;
       background-position: center 30%;
     }
@@ -352,8 +352,8 @@
         <div class="footer-inner">
 
         <div class="footer-left">
-        <h2>Beauty#</h2>
-        <p>당신의 아름다움을 완성하는 공간</p>
+            <h2>Beauty#</h2>
+            <p>당신의 아름다움을 완성하는 공간</p>
         </div>
 
         <div class="footer-center">
@@ -366,8 +366,8 @@
         </div>
 
         <div class="footer-right">
-        <p>Tel. 010-1234-5678</p>
-        <p>Incheon, Korea</p>
+            <p>Tel. 010-1234-5678</p>
+            <p>Incheon, Korea</p>
         </div>
 
         </div>
