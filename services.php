@@ -10,7 +10,7 @@
   <style>
     .sub-visual {
         height: 250px;
-        background: url('./images/spabielenda-beautician-5529805.jpg') no-repeat center/cover;
+        background: url('./images/hero.png') no-repeat center/cover;
         display: flex;
         align-items: center;
         justify-content: center;
